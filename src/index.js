@@ -5,6 +5,7 @@ function newShip(length, hits = 0, sunk = false) {
         sunk: sunk,
         hit: function() {
             this.hits += 1;
+            return this.hits;
         },
         isSunk: function() {
             if (this.hits >= this.length) {
@@ -18,54 +19,61 @@ function newShip(length, hits = 0, sunk = false) {
 function Gameboard(){
     const ships = [];
     const placed = [];
-    function placeShip(length, startCoordinate, direction = 'horizontal'){
+    const missed = [];
+
+    function placeShip(length, startCoordinate, direction = 'horizontal') {
         const ship = newShip(length);
-        
         let x = startCoordinate[0];
         let y = startCoordinate[1];
-        let coordinates = [x, y];
 
-        const position = [];
+        const tempPosition = [];
+        tempPosition.push([x, y]);
 
-        if(x > 0 && x < 10 && y > 0 && y < 10 && !placed.some(coord => coord[0] === x && coord[1] === y)){
-            position.push(coordinates);
-            placed.push(coordinates);
-        }
-
-        if(direction === 'horizontal'){
-            for(let i = 0; i < ship.length - 1; i++){
-                y++;
-                if(x > 0 && x < 10 && y > 0 && y < 10 && !placed.some(coord => coord[0] === x && coord[1] === y)){
-                position.push([x, y]);
-                placed.push([x, y]);
-            }}
-
-        }else if(direction === 'vertical'){
-            
-            for(let i = 0; i < ship.length - 1; i++){
-                x++;
-                if(x > 0 && x < 10 && y > 0 && y < 10 && !placed.some(coord => coord[0] === x && coord[1] === y)){
-                position.push([x, y]);
-                placed.push([x, y]);
-            }}
-        }
-        if(position.length === ship.length){
-            ships.push({ship, position});
+        if (direction === 'horizontal') {
+            for (let i = 1; i < length; i++) {
+                tempPosition.push([x, y + i]);
+            }
         } else {
-            return;
+            for (let i = 1; i < length; i++) {
+                tempPosition.push([x + i, y]);
+            }
         }
+
+        const valid = tempPosition.every(coord => coord[0] >= 0 && coord[0] < 10 && coord[1] >= 0 && coord[1] < 10);
+        if (!valid) return;
+
+        const overlap = tempPosition.some(coord =>
+            placed.some(p => p[0] === coord[0] && p[1] === coord[1])
+        );
+        if (overlap) return;
+
+        ships.push({ ship, position: tempPosition });
+        placed.push(...tempPosition);
 
         return ships;
     }
     
+    function receiveAttack(x, y) {
+    const attackCoord = [x, y];
 
-    function receiveAttack(x, y){
-
+    for (const shipObj of ships) {
+        if (shipObj.position.some(coord => coord[0] === x && coord[1] === y)) {
+            const currentShip = shipObj.ship;
+            currentShip.hit();
+            const sunk = currentShip.isSunk();
+            return { hit: true, sunk };
+        }
     }
+    missed.push(attackCoord);
+    return { hit: false };
+}
+
+
     return{
         ships: ships,
         placeShip,
-        receiveAttack
+        receiveAttack,
+        missed
     }
 }
 
