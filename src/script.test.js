@@ -1,4 +1,4 @@
-const {newShip }= require("./index.js");
+const {newShip}= require("./gameFunctions.js");
 
 describe('createShip', () => {
     test('should create a ship object with the correct properties', () => {
@@ -11,7 +11,7 @@ describe('createShip', () => {
 })
 
 
-const {Gameboard} = require('./index.js');
+const {Gameboard} = require('./gameFunctions.js');
 
 describe('Gameboard', () => {
     let board;
@@ -55,3 +55,23 @@ describe('Gameboard', () => {
         expect(board.ships[0].ship.sunk).toBe(true);
     })
 });
+
+const {newPlayer} = require('./gameFunctions.js')
+
+describe('newPlayer', () => {
+    test('should create a new player', () => {
+        const player1 = newPlayer('Oli');
+        expect(player1.name).toBe('Oli');
+        expect(player1.type).toBe('person');
+    })
+});
+
+const {AIplayer} = require('./gameFunctions.js')
+
+describe('AIplayer', () => {
+    test('should create an AI player', () => {
+        const player1 = AIplayer();
+        expect(player1.name).toBe('ai');
+        expect(player1.type).toBe('computer');
+    })
+})

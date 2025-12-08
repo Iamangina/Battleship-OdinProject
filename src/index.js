@@ -1,82 +1,32 @@
-function newShip(length, hits = 0, sunk = false) {
-    return {
-        length: length,
-        hits: hits,
-        sunk: sunk,
-        hit: function() {
-            this.hits += 1;
-            return this.hits;
-        },
-        isSunk: function() {
-            if (this.hits >= this.length) {
-                this.sunk = true;
-            }
-            return this.sunk;
-        }
-    };
-}
+import './style.css';
 
-function Gameboard(){
-    const ships = [];
-    const placed = [];
-    const missed = [];
+const changePlayer = document.querySelector('.vs');
+const player2 = document.querySelector('#player2');
+const aiPlayer = document.querySelector('#AI');
 
-    function placeShip(length, startCoordinate, direction = 'horizontal') {
-        const ship = newShip(length);
-        let x = startCoordinate[0];
-        let y = startCoordinate[1];
+changePlayer.addEventListener('click', () => {
+    const player2Display = window.getComputedStyle(player2).display;
+    const aiDisplay = window.getComputedStyle(aiPlayer).display;
 
-        const tempPosition = [];
-        tempPosition.push([x, y]);
-
-        if (direction === 'horizontal') {
-            for (let i = 1; i < length; i++) {
-                tempPosition.push([x, y + i]);
-            }
-        } else {
-            for (let i = 1; i < length; i++) {
-                tempPosition.push([x + i, y]);
-            }
-        }
-
-        const valid = tempPosition.every(coord => coord[0] >= 0 && coord[0] < 10 && coord[1] >= 0 && coord[1] < 10);
-        if (!valid) return;
-
-        const overlap = tempPosition.some(coord =>
-            placed.some(p => p[0] === coord[0] && p[1] === coord[1])
-        );
-        if (overlap) return;
-
-        ships.push({ ship, position: tempPosition });
-        placed.push(...tempPosition);
-
-        return ships;
+    if (player2Display === 'flex') {
+        player2.style.display = 'none';
+        aiPlayer.style.display = 'flex';
+    } else if (aiDisplay === 'flex'){
+        player2.style.display = 'flex';
+        aiPlayer.style.display = 'none';
     }
+});
+
+const name1 = document.querySelector('#player1Name');
+const name2 = document.querySelector('#player2Name');
+const btnStart = document.querySelector('.btnStart');
+const startPage = document.querySelector('.startPage');
+
+btnStart.addEventListener('click', () => {
+    startPage.style.display = "none";
+    const player1Name = name1.value;
+    const player2Name = name2.value;
+
+
     
-    function receiveAttack(x, y) {
-    const attackCoord = [x, y];
-
-    for (const shipObj of ships) {
-        if (shipObj.position.some(coord => coord[0] === x && coord[1] === y)) {
-            const currentShip = shipObj.ship;
-            currentShip.hit();
-            const sunk = currentShip.isSunk();
-            return { hit: true, sunk };
-        }
-    }
-    missed.push(attackCoord);
-    return { hit: false };
-}
-
-
-    return{
-        ships: ships,
-        placeShip,
-        receiveAttack,
-        missed
-    }
-}
-
-
-
-module.exports = {newShip, Gameboard};
+})

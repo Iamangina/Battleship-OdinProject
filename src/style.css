@@ -1,0 +1,90 @@
+body{
+    background-image: url("./images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.startPage{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.485);
+    border: 5px solid black;
+    width: 800px;
+    height: 500px;
+    padding: 0px;
+}
+.titleStartPage{
+    margin-top: 0px;
+    font-size: 60px;
+}
+.players{
+    display: flex;
+    gap: 50px;
+}
+.player{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
+#player2{
+    display: flex;
+}
+#AI{
+    display: none;
+}
+.imgPlayer{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+.playerName{
+    border-radius: 30px;
+    border: 2px solid black;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.44);
+    text-align: center;
+    width: 200px;
+    color: white;
+    margin: auto;
+    text-shadow: 0 0 3px black;
+    font-family: "Orbitron", sans-serif;
+}
+#aiName{
+    height: 25px;
+    padding-top: 5px;
+    font-weight: 600;
+}
+.playerName::placeholder{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-shadow: 0 0 3px black;
+    font-family: "Orbitron", sans-serif;
+}
+.btnStart{
+    margin-top: 20px;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.008);
+    border: none;
+    font-family: "Sigmar One", sans-serif;
+    font-size: 30px;
+}
+.vs{
+    border: none;
+    font-size: 40px;
+    margin: 0;
+    background-color: transparent;
+    font-family: "Orbitron", sans-serif;
+}
+button:hover{
+    cursor: pointer;
+}

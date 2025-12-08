@@ -4,10 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Battleship</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Protest+Guerrilla&family=Sigmar+One&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="startPage">
+        <h1 class="titleStartPage">BATTLESHIP ONLINE</h1>
+        <div class="players">
+            <div class="player" id="player1"><img class="imgPlayer" id="imgPlayer1" src="./images/player1.png"><input type="text" id="player1Name" class="playerName" placeholder="PLAYER 1"></div>
+            
+            <button class="vs">VS</button>
+            
+            <div class="player" id="player2"><img class="imgPlayer" id="imgPlayer2" src="./images/player2.png"><input type="text" id="player2Name" class="playerName" placeholder="PLAYER 2"></div>
+            <div class="player" id="AI"><img class="imgPlayer" id="AIimg" src="./images/aiPlayer.png"><p class="playerName" id="aiName">AI PLAYER</p> </div>
+        </div>
+        <button class="btnStart">START</button>
+    </div>
     
-    <script src="index.js" type="module"></script>
 </body>
 </html>

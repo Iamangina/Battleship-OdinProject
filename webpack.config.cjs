@@ -11,7 +11,11 @@ module.exports = {
   },
   devtool: "eval-source-map",
   devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
     watchFiles: ["./src/index.html"],
+    port: 8080,
   },
   plugins: [
     new HtmlWebpackPlugin({
