@@ -88,3 +88,51 @@ body{
 button:hover{
     cursor: pointer;
 }
+
+/** Main Page **/
+
+.mainPage{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.cell{
+    border: 2px solid black;
+    background-color: rgba(0, 128, 255, 0.655);
+    width: 34px;
+    height: 34px;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+    gap: 2px;
+}
+.mainPlayers{
+    display: flex;
+    gap: 50px;
+    margin-top: 0px;
+}
+.player1, .player2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-family: "Orbitron", sans-serif;
+}
+.ready{
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.008);
+    border: none;
+    font-family: "Sigmar One", sans-serif;
+    font-size: 30px;
+    text-shadow: 0 0 3px white;
+}
+.shipList{
+    font-family: "Sigmar One", sans-serif;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 0px;
+    font-size: 20px;
+}

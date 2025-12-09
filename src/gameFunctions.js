@@ -86,4 +86,4 @@ export function AIplayer(){
     }
 }
 
-module.exports = {newShip, Gameboard, newPlayer, AIplayer};
+//module.exports = {newShip, Gameboard, newPlayer, AIplayer};
