@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Battleship</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Protest+Guerrilla&family=Sigmar+One&display=swap" rel="stylesheet">
+<script defer src="main.js"></script></head>
+<body>
+    <div class="startPage">
+        <h1 class="titleStartPage">BATTLESHIP ONLINE</h1>
+
+        <div class="players">
+            <div class="player" id="player1"><img class="imgPlayer" id="imgPlayer1" src="f826ca40aa77701d7a7c.png"><input type="text" id="player1Name" class="playerName" placeholder="PLAYER 1"></div>
+            
+            <button class="vs">VS</button>
+            
+            <div class="player" id="player2"><img class="imgPlayer" id="imgPlayer2" src="104dad2c270f2731b5f8.png"><input type="text" id="player2Name" class="playerName" placeholder="PLAYER 2"></div>
+            <div class="player" id="AI"><img class="imgPlayer" id="AIimg" src="f3c059f32a9b6719aab4.png"><p class="playerName" id="aiName">AI PLAYER</p> </div>
+        </div>
+
+        <button class="btnStart">START</button>
+    </div>
+
+    <div class="mainPage">
+        <h1 class="titleStartPage">BATTLESHIP ONLINE</h1>
+        <div class="select">
+            <select class="shipList">
+                <option value="Carrier">Carrier</option>
+                <option value="Battleship">Battleship</option>
+                <option value="Cruiser">Cruiser</option>
+                <option value="Destroyer">Destroyer</option>
+                <option value="Submarine">Submarine</option>
+            </select>
+            <select class="direction">
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+            </select>
+        </div>
+
+        <div class="mainPlayers">
+            <div class="player1">
+            </div>
+
+            <div class="player2">
+            </div>
+        </div>
+    </div>
+
+    <div class="winnerPage">
+        <h3 class="winnerName"></h3>
+    </div>
+    
+</body>
+</html>
