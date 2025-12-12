@@ -289,7 +289,7 @@ btnStart.addEventListener('click', () => {
                     const lastShip = Player2.gameboard.ships[Player2.gameboard.ships.length - 1];
                     lastShip.position.forEach(([r, c]) => {
                         const selector = `.cell[data-row="${r}"][data-col="${c}"]`;
-                        board2.querySelector(selector).classList.add('ship1');
+                        board2.querySelector(selector).classList.add('hidden');
                     });
                 }
             }
