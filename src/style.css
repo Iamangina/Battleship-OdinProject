@@ -122,6 +122,7 @@ button:hover{
     font-family: "Orbitron", sans-serif;
 }
 .ready{
+    display: block;
     width: 200px;
     background-color: rgba(255, 255, 255, 0.008);
     border: none;
@@ -129,10 +130,53 @@ button:hover{
     font-size: 30px;
     text-shadow: 0 0 3px white;
 }
-.shipList{
+.shipList, .direction{
     font-family: "Sigmar One", sans-serif;
     background-color: transparent;
     border: none;
     margin-bottom: 0px;
     font-size: 20px;
+}
+.invalid{
+    background-color: rgb(213, 104, 104);
+}
+
+.ship, .ship1{
+    background-color: rgba(156, 211, 156, 0.985);
+}
+
+.hidden, .hidden1{
+    background-color: rgba(0, 128, 255, 0.655);
+}
+
+.hit{
+    background-color: rgb(195, 102, 102);
+}
+
+.sunk{
+    background-color: rgb(0, 55, 110);
+}
+
+.miss{
+    background-color: rgba(255, 255, 255, 0.597);
+}
+
+/** Winner Page **/
+
+.winnerPage{
+    margin-top: 250px;
+    padding-top: 20px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 600px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.826);
+    border: 5px solid black;
+}
+
+.winnerName{
+    font-size: 40px;
+    margin-top: 0px;
 }

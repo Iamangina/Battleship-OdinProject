@@ -60,7 +60,7 @@ export function Gameboard(){
             const currentShip = shipObj.ship;
             currentShip.hit();
             const sunk = currentShip.isSunk();
-            return { hit: true, sunk };
+            return { hit: true, sunk, shipObj};
         }
     }
     missed.push(attackCoord);

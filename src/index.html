@@ -26,13 +26,19 @@
 
     <div class="mainPage">
         <h1 class="titleStartPage">BATTLESHIP ONLINE</h1>
-        <select class="shipList">
-            <option value="ship4">Carrier</option>
-            <option value="ship3">Battleship</option>
-            <option value="ship3">Cruiser</option>
-            <option value="ship2">Destroyer</option>
-            <option value="ship1">Submarine</option>
-        </select>
+        <div class="select">
+            <select class="shipList">
+                <option value="Carrier">Carrier</option>
+                <option value="Battleship">Battleship</option>
+                <option value="Cruiser">Cruiser</option>
+                <option value="Destroyer">Destroyer</option>
+                <option value="Submarine">Submarine</option>
+            </select>
+            <select class="direction">
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+            </select>
+        </div>
 
         <div class="mainPlayers">
             <div class="player1">
@@ -41,6 +47,10 @@
             <div class="player2">
             </div>
         </div>
+    </div>
+
+    <div class="winnerPage">
+        <h3 class="winnerName"></h3>
     </div>
     
 </body>
